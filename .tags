@@ -1,0 +1,231 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+OAuthConsumer	pesapal/OAuth.php	/^class OAuthConsumer {$/;"	c
+OAuthDataStore	pesapal/OAuth.php	/^class OAuthDataStore {$/;"	c
+OAuthException	pesapal/OAuth.php	/^class OAuthException extends Exception {$/;"	c
+OAuthRequest	pesapal/OAuth.php	/^class OAuthRequest {$/;"	c
+OAuthServer	pesapal/OAuth.php	/^class OAuthServer {$/;"	c
+OAuthSignatureMethod	pesapal/OAuth.php	/^class OAuthSignatureMethod {$/;"	c
+OAuthSignatureMethod_HMAC_SHA1	pesapal/OAuth.php	/^class OAuthSignatureMethod_HMAC_SHA1 extends OAuthSignatureMethod {$/;"	c
+OAuthSignatureMethod_PLAINTEXT	pesapal/OAuth.php	/^class OAuthSignatureMethod_PLAINTEXT extends OAuthSignatureMethod {$/;"	c
+OAuthSignatureMethod_RSA_SHA1	pesapal/OAuth.php	/^class OAuthSignatureMethod_RSA_SHA1 extends OAuthSignatureMethod {$/;"	c
+OAuthToken	pesapal/OAuth.php	/^class OAuthToken {$/;"	c
+OAuthUtil	pesapal/OAuth.php	/^class OAuthUtil {$/;"	c
+POST_INPUT	pesapal/OAuth.php	/^  public static $POST_INPUT = 'php:\/\/input';$/;"	v
+PluginPesapal	pesapal/PluginPesapal.php	/^class PluginPesapal extends GatewayPlugin$/;"	c
+PluginPesapalCallback	pesapal/PluginPesapalCallback.php	/^class PluginPesapalCallback extends PluginCallback$/;"	c
+__construct	pesapal/OAuth.php	/^  function __construct($data_store) {$/;"	f
+__construct	pesapal/OAuth.php	/^  function __construct($http_method, $http_url, $parameters=NULL) {$/;"	f
+__construct	pesapal/OAuth.php	/^  function __construct($key, $secret) {$/;"	f
+__construct	pesapal/OAuth.php	/^  function __construct($key, $secret, $callback_url=NULL) {$/;"	f
+__toString	pesapal/OAuth.php	/^  function __toString() {$/;"	f
+__toString	pesapal/OAuth.php	/^  public function __toString() {$/;"	f
+add_signature_method	pesapal/OAuth.php	/^  public function add_signature_method($signature_method) {$/;"	f
+amount	pesapal/PluginPesapal.php	/^        $amount 	    = number_format($amount, 2);\/\/format amount to 2 decimal places$/;"	v
+amount	pesapal/PluginPesapal.php	/^        $amount             = $params['invoiceTotal'];$/;"	v
+base_string	pesapal/OAuth.php	/^    $base_string = $request->get_signature_base_string();$/;"	v
+base_string	pesapal/OAuth.php	/^  public $base_string;$/;"	v
+build_http_query	pesapal/OAuth.php	/^  public static function build_http_query($params) {$/;"	f
+build_signature	pesapal/OAuth.php	/^  public function build_signature($request, $consumer, $token) {$/;"	f
+build_signature	pesapal/OAuth.php	/^  public function build_signature($signature_method, $consumer, $token) {$/;"	f
+build_signature	pesapal/OAuth.php	/^  public function build_signature(&$request, $consumer, $token) {$/;"	f
+built	pesapal/OAuth.php	/^    $built = $this->build_signature($request, $consumer, $token);$/;"	v
+callbackUrl	pesapal/PluginPesapal.php	/^        $callbackUrl = $params['clientExecURL'].$urlFix.'plugins\/gateways\/'.$pluginFolderName.'\/callback.php';$/;"	v
+callback_url	pesapal/OAuth.php	/^    $this->callback_url = $callback_url;$/;"	v
+callback_url	pesapal/PluginPesapal.php	/^        $callback_url 	    = $callbackUrl;$/;"	v
+cert	pesapal/OAuth.php	/^    $cert = $this->fetch_private_cert($request);$/;"	v
+cert	pesapal/OAuth.php	/^    $cert = $this->fetch_public_cert($request);$/;"	v
+charid	pesapal/OAuth.php	/^    $charid = strtoupper(md5(uniqid(rand(), true)));$/;"	v
+check_nonce	pesapal/OAuth.php	/^  private function check_nonce($consumer, $token, $nonce, $timestamp) {$/;"	f
+check_signature	pesapal/OAuth.php	/^  private function check_signature(&$request, $consumer, $token) {$/;"	f
+check_signature	pesapal/OAuth.php	/^  public function check_signature(&$request, $consumer, $token, $signature) {$/;"	f
+check_timestamp	pesapal/OAuth.php	/^  private function check_timestamp($timestamp) {$/;"	f
+consumer	pesapal/OAuth.php	/^    $consumer = $this->data_store->lookup_consumer($consumer_key);$/;"	v
+consumer	pesapal/OAuth.php	/^    $consumer = $this->get_consumer($request);$/;"	v
+consumer	pesapal/PluginPesapal.php	/^        $consumer 	    = new OAuthConsumer($consumer_key, $consumer_secret);$/;"	v
+consumer_key	pesapal/OAuth.php	/^    $consumer_key = @$request->get_parameter("oauth_consumer_key");$/;"	v
+consumer_key	pesapal/PluginPesapal.php	/^        $consumer_key 	    = $params['plugin_pesapal_Consumer Key'];$/;"	v
+consumer_secret	pesapal/PluginPesapal.php	/^        $consumer_secret    = $params['plugin_pesapal_Consumer Secret'];$/;"	v
+credit	pesapal/PluginPesapal.php	/^    function credit($params)$/;"	f
+currency	pesapal/PluginPesapal.php	/^        $currency 	    = $params['userCurrency'];$/;"	v
+data_store	pesapal/OAuth.php	/^    $this->data_store = $data_store;$/;"	v
+data_store	pesapal/OAuth.php	/^  protected $data_store;$/;"	v
+decoded_sig	pesapal/OAuth.php	/^    $decoded_sig = base64_decode($signature);$/;"	v
+defaults	pesapal/OAuth.php	/^    $defaults = array("oauth_version" => OAuthRequest::$version,$/;"	v
+desc	pesapal/PluginPesapal.php	/^        $desc 		    = $params['invoiceDescription'];$/;"	v
+email	pesapal/PluginPesapal.php	/^        $email 		    = $params['userEmail'];$/;"	v
+fetch_access_token	pesapal/OAuth.php	/^  public function fetch_access_token(&$request) {$/;"	f
+fetch_private_cert	pesapal/OAuth.php	/^  protected function fetch_private_cert(&$request) {$/;"	f
+fetch_public_cert	pesapal/OAuth.php	/^  protected function fetch_public_cert(&$request) {$/;"	f
+fetch_request_token	pesapal/OAuth.php	/^  public function fetch_request_token(&$request) {$/;"	f
+first_name	pesapal/PluginPesapal.php	/^        $first_name 	    = $params['userFirstName'];$/;"	v
+found	pesapal/OAuth.php	/^    $found = $this->data_store->lookup_nonce($/;"	v
+from_consumer_and_token	pesapal/OAuth.php	/^  public static function from_consumer_and_token($consumer, $token, $http_method, $http_url, $parameters=NULL) {$/;"	f
+from_request	pesapal/OAuth.php	/^  public static function from_request($http_method=NULL, $http_url=NULL, $parameters=NULL) {$/;"	f
+gatewayPlugin	pesapal/PluginPesapalCallback.php	/^        $gatewayPlugin = new Plugin($invoiceId, $pluginFolderName, $this->user);$/;"	v
+generate_nonce	pesapal/OAuth.php	/^  private static function generate_nonce() {$/;"	f
+generate_timestamp	pesapal/OAuth.php	/^  private static function generate_timestamp() {$/;"	f
+getVariables	pesapal/PluginPesapal.php	/^    function getVariables()$/;"	f
+get_consumer	pesapal/OAuth.php	/^  private function get_consumer(&$request) {$/;"	f
+get_headers	pesapal/OAuth.php	/^  public static function get_headers() {$/;"	f
+get_name	pesapal/OAuth.php	/^  function get_name() {$/;"	f
+get_name	pesapal/OAuth.php	/^  public function get_name() {$/;"	f
+get_normalized_http_method	pesapal/OAuth.php	/^  public function get_normalized_http_method() {$/;"	f
+get_normalized_http_url	pesapal/OAuth.php	/^  public function get_normalized_http_url() {$/;"	f
+get_parameter	pesapal/OAuth.php	/^  public function get_parameter($name) {$/;"	f
+get_parameters	pesapal/OAuth.php	/^  public function get_parameters() {$/;"	f
+get_signable_parameters	pesapal/OAuth.php	/^  public function get_signable_parameters() {$/;"	f
+get_signature_base_string	pesapal/OAuth.php	/^  public function get_signature_base_string() {$/;"	f
+get_signature_method	pesapal/OAuth.php	/^  private function get_signature_method(&$request) {$/;"	f
+get_token	pesapal/OAuth.php	/^  private function get_token(&$request, $consumer, $token_type="access") {$/;"	f
+get_version	pesapal/OAuth.php	/^  private function get_version(&$request) {$/;"	f
+header_content	pesapal/OAuth.php	/^      $header_content = (isset($matches[5])) ? $matches[5][0] : $matches[4][0];$/;"	v
+header_name	pesapal/OAuth.php	/^      $header_name = $matches[2][0];$/;"	v
+header_parameters	pesapal/OAuth.php	/^        $header_parameters = OAuthUtil::split_header($/;"	v
+host	pesapal/OAuth.php	/^      $host = "$host:$port";$/;"	v
+host	pesapal/OAuth.php	/^    $host = $parts['host'];$/;"	v
+http_method	pesapal/OAuth.php	/^    $this->http_method = $http_method;$/;"	v
+http_method	pesapal/OAuth.php	/^  private $http_method;$/;"	v
+http_url	pesapal/OAuth.php	/^    $this->http_url = $http_url;$/;"	v
+http_url	pesapal/OAuth.php	/^  private $http_url;$/;"	v
+hyphen	pesapal/OAuth.php	/^    $hyphen = chr(45);\/\/ "-"$/;"	v
+iframe_src	pesapal/PluginPesapal.php	/^        $iframe_src = OAuthRequest::from_consumer_and_token($consumer, $token, "GET", $iframelink, null);$/;"	v
+iframelink	pesapal/PluginPesapal.php	/^        $iframelink 	    = $requestUrl.'\/api\/PostPesapalDirectOrderV4';$/;"	v
+iframelink_mobile	pesapal/PluginPesapal.php	/^        $iframelink_mobile  = $requestUrl.'\/api\/PostPesapalDirectOrderMobile';$/;"	v
+invoiceId	pesapal/PluginPesapalCallback.php	/^        $invoiceId = $params['invoiceId'];$/;"	v
+key	pesapal/OAuth.php	/^        $key = str_replace($/;"	v
+key	pesapal/OAuth.php	/^    $key = implode('&', $key_parts);$/;"	v
+key	pesapal/OAuth.php	/^    $this->key = $key;$/;"	v
+key	pesapal/OAuth.php	/^  public $key;$/;"	v
+key_parts	pesapal/OAuth.php	/^    $key_parts = OAuthUtil::urlencode_rfc3986($key_parts);$/;"	v
+key_parts	pesapal/OAuth.php	/^    $key_parts = array($/;"	v
+keys	pesapal/OAuth.php	/^    $keys = OAuthUtil::urlencode_rfc3986(array_keys($params));$/;"	v
+last_name	pesapal/PluginPesapal.php	/^        $last_name 	    = $params['userLastName'];$/;"	v
+lookup_consumer	pesapal/OAuth.php	/^  function lookup_consumer($consumer_key) {$/;"	f
+lookup_nonce	pesapal/OAuth.php	/^  function lookup_nonce($consumer, $token, $nonce, $timestamp) {$/;"	f
+lookup_token	pesapal/OAuth.php	/^  function lookup_token($consumer, $token_type, $token) {$/;"	f
+match	pesapal/OAuth.php	/^      $match = $matches[0];$/;"	v
+newInvoice	pesapal/PluginPesapalCallback.php	/^                        $newInvoice = $gatewayPlugin->retrieveInvoiceForTransaction($parentTransactionId);$/;"	v
+new_access_token	pesapal/OAuth.php	/^  function new_access_token($token, $consumer) {$/;"	f
+new_request_token	pesapal/OAuth.php	/^  function new_request_token($consumer) {$/;"	f
+new_token	pesapal/OAuth.php	/^    $new_token = $this->data_store->new_access_token($token, $consumer);$/;"	v
+new_token	pesapal/OAuth.php	/^    $new_token = $this->data_store->new_request_token($consumer);$/;"	v
+nonce	pesapal/OAuth.php	/^    $nonce = @$request->get_parameter('oauth_nonce');$/;"	v
+now	pesapal/OAuth.php	/^    $now = time();$/;"	v
+offset	pesapal/OAuth.php	/^      $offset = $match[1] + strlen($match[0]);$/;"	v
+offset	pesapal/OAuth.php	/^    $offset = 0;$/;"	v
+ok	pesapal/OAuth.php	/^    $ok = openssl_sign($base_string, $signature, $privatekeyid);$/;"	v
+ok	pesapal/OAuth.php	/^    $ok = openssl_verify($base_string, $decoded_sig, $publickeyid);$/;"	v
+out	pesapal/OAuth.php	/^    $out = $this->get_normalized_http_url();$/;"	v
+out	pesapal/OAuth.php	/^    $out = array();$/;"	v
+out	pesapal/OAuth.php	/^    $out ='Authorization: OAuth realm=""';$/;"	v
+pairs	pesapal/OAuth.php	/^    $pairs = array();$/;"	v
+pairs	pesapal/OAuth.php	/^    $pairs = split('&', $input);$/;"	v
+parameter	pesapal/OAuth.php	/^      $parameter = OAuthUtil::urldecode_rfc3986($split[0]);$/;"	v
+parameters	pesapal/OAuth.php	/^        $parameters = array_merge($parameters, $header_parameters);$/;"	v
+parameters	pesapal/OAuth.php	/^        $parameters = array_merge($parameters, $post_data);$/;"	v
+parameters	pesapal/OAuth.php	/^      $parameters = OAuthUtil::parse_parameters($_SERVER['QUERY_STRING']);$/;"	v
+parameters	pesapal/OAuth.php	/^    $parameters = array_merge($defaults, $parameters);$/;"	v
+parameters	pesapal/OAuth.php	/^    $this->parameters = $parameters;$/;"	v
+parameters	pesapal/OAuth.php	/^  private $parameters;$/;"	v
+params	pesapal/OAuth.php	/^    $params = $this->parameters;$/;"	v
+params	pesapal/OAuth.php	/^    $params = array();$/;"	v
+params	pesapal/OAuth.php	/^    $params = array_combine($keys, $values);$/;"	v
+params	pesapal/PluginPesapalCallback.php	/^        $params = $this->params;$/;"	v
+params	pesapal/PluginPesapalCallback.php	/^        $this->params = $params;$/;"	v
+params	pesapal/PluginPesapalCallback.php	/^    var $params;$/;"	v
+parentTransactionId	pesapal/PluginPesapalCallback.php	/^                $parentTransactionId = $params['parentTransactionId'];$/;"	v
+parse_parameters	pesapal/OAuth.php	/^  public static function parse_parameters( $input ) {$/;"	f
+parsed_parameters	pesapal/OAuth.php	/^    $parsed_parameters = array();$/;"	v
+parts	pesapal/OAuth.php	/^    $parts = OAuthUtil::urlencode_rfc3986($parts);$/;"	v
+parts	pesapal/OAuth.php	/^    $parts = array($/;"	v
+parts	pesapal/OAuth.php	/^    $parts = parse_url($this->http_url);$/;"	v
+path	pesapal/OAuth.php	/^    $path = @$parts['path'];$/;"	v
+pattern	pesapal/OAuth.php	/^    $pattern = '\/(([-_a-z]*)=("([^"]*)"|([^,]*)),?)\/';$/;"	v
+phonenumber	pesapal/PluginPesapal.php	/^        $phonenumber	    = $params['userPhone'];$/;"	v
+plugiName	pesapal/PluginPesapalCallback.php	/^        $plugiName = $this->settings->get('plugin_'.$pluginFolderName.'_Plugin Name');$/;"	v
+pluginFolderName	pesapal/PluginPesapal.php	/^        $pluginFolderName = basename(dirname(__FILE__));$/;"	v
+pluginFolderName	pesapal/PluginPesapalCallback.php	/^        $pluginFolderName = basename(dirname(__FILE__));$/;"	v
+port	pesapal/OAuth.php	/^    $port = @$parts['port'];$/;"	v
+post_data	pesapal/OAuth.php	/^        $post_data = OAuthUtil::parse_parameters($/;"	v
+post_data	pesapal/OAuth.php	/^    $post_data = $this->to_postdata();$/;"	v
+post_xml	pesapal/PluginPesapal.php	/^        $post_xml	    = "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>$/;"	v
+post_xml	pesapal/PluginPesapal.php	/^        $post_xml = htmlentities($post_xml);$/;"	v
+privatekeyid	pesapal/OAuth.php	/^    $privatekeyid = openssl_get_privatekey($cert);$/;"	v
+processCallback	pesapal/PluginPesapalCallback.php	/^    function processCallback()$/;"	f
+publickeyid	pesapal/OAuth.php	/^    $publickeyid = openssl_get_publickey($cert);$/;"	v
+raw	pesapal/OAuth.php	/^    $raw = implode("&", $sig);$/;"	v
+reference	pesapal/PluginPesapal.php	/^        $reference 	    = $params['invoiceNumber'];$/;"	v
+requestUrl	pesapal/PluginPesapal.php	/^            $requestUrl = "https:\/\/demo.pesapal.com";$/;"	v
+requestUrl	pesapal/PluginPesapal.php	/^            $requestUrl = "https:\/\/pesapal.com";$/;"	v
+request_headers	pesapal/OAuth.php	/^      $request_headers = OAuthUtil::get_headers();$/;"	v
+returnCancelUrl	pesapal/PluginPesapal.php	/^                $returnCancelUrl = $params["clientExecURL"]."\/order.php?step=3";$/;"	v
+returnCancelUrl	pesapal/PluginPesapal.php	/^                $returnCancelUrl = $this->settings->get('Signup Completion URL');$/;"	v
+returnCancelUrl	pesapal/PluginPesapal.php	/^            $returnCancelUrl = $params["invoiceviewURLCancel"];$/;"	v
+returnUrl	pesapal/PluginPesapal.php	/^                $returnUrl = $params["clientExecURL"]."\/order.php?step=complete&pass=1";$/;"	v
+returnUrl	pesapal/PluginPesapal.php	/^                $returnUrl = $this->settings->get('Signup Completion URL').'?success=1';$/;"	v
+returnUrl	pesapal/PluginPesapal.php	/^            $returnUrl = $params["invoiceviewURLSuccess"];$/;"	v
+scheme	pesapal/OAuth.php	/^    $scheme = $parts['scheme'];$/;"	v
+scheme	pesapal/OAuth.php	/^    $scheme = (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on")$/;"	v
+secret	pesapal/OAuth.php	/^    $this->secret = $secret;$/;"	v
+secret	pesapal/OAuth.php	/^  public $secret;$/;"	v
+setCallbackParams	pesapal/PluginPesapalCallback.php	/^    function setCallbackParams($params)$/;"	f
+set_parameter	pesapal/OAuth.php	/^  public function set_parameter($name, $value, $allow_duplicates = true) {$/;"	f
+sig	pesapal/OAuth.php	/^    $sig = array($/;"	v
+sign_request	pesapal/OAuth.php	/^  public function sign_request($signature_method, $consumer, $token) {$/;"	f
+signature	pesapal/OAuth.php	/^    $signature = $request->get_parameter('oauth_signature');$/;"	v
+signature	pesapal/OAuth.php	/^    $signature = $signature_method->build_signature($this, $consumer, $token);$/;"	v
+signature	pesapal/OAuth.php	/^    $signature = $this->build_signature($signature_method, $consumer, $token);$/;"	v
+signature_method	pesapal/OAuth.php	/^      $signature_method = "PLAINTEXT";$/;"	v
+signature_method	pesapal/OAuth.php	/^    $signature_method = $this->get_signature_method($request);$/;"	v
+signature_method	pesapal/OAuth.php	/^    $signature_method =$/;"	v
+signature_method	pesapal/PluginPesapal.php	/^        $signature_method   = new OAuthSignatureMethod_HMAC_SHA1();$/;"	v
+signature_methods	pesapal/OAuth.php	/^  protected $signature_methods = array();$/;"	v
+singlepayment	pesapal/PluginPesapal.php	/^    function singlepayment($params)$/;"	f
+split	pesapal/OAuth.php	/^      $split = split('=', $pair, 2);$/;"	v
+split_header	pesapal/OAuth.php	/^  public static function split_header($header, $only_allow_oauth_parameters = true) {$/;"	f
+strForm	pesapal/PluginPesapal.php	/^        $strForm = "<html>\\n";$/;"	v
+timestamp	pesapal/OAuth.php	/^    $timestamp = @$request->get_parameter('oauth_timestamp');$/;"	v
+timestamp_threshold	pesapal/OAuth.php	/^  protected $timestamp_threshold = 300; \/\/ in seconds, five minutes$/;"	v
+to_header	pesapal/OAuth.php	/^  public function to_header() {$/;"	f
+to_postdata	pesapal/OAuth.php	/^  public function to_postdata() {$/;"	f
+to_string	pesapal/OAuth.php	/^  function to_string() {$/;"	f
+to_url	pesapal/OAuth.php	/^  public function to_url() {$/;"	f
+token	pesapal/OAuth.php	/^    $token = $this->data_store->lookup_token($/;"	v
+token	pesapal/OAuth.php	/^    $token = $this->get_token($request, $consumer, "access");$/;"	v
+token	pesapal/OAuth.php	/^    $token = $this->get_token($request, $consumer, "request");$/;"	v
+token	pesapal/OAuth.php	/^    $token = NULL;$/;"	v
+token	pesapal/PluginPesapal.php	/^        $token = NULL;$/;"	v
+token_field	pesapal/OAuth.php	/^    $token_field = @$request->get_parameter('oauth_token');$/;"	v
+total	pesapal/OAuth.php	/^    $total = array();$/;"	v
+transaction	pesapal/PluginPesapalCallback.php	/^                            $transaction = "$plugiName payment of $transactionAmount was refunded. (Transaction Id: ".$transactionId.")";$/;"	v
+transaction	pesapal/PluginPesapalCallback.php	/^                        $transaction = "$plugiName payment of $transactionAmount was accepted. (Transaction Id: ".$transactionId.")";$/;"	v
+transaction	pesapal/PluginPesapalCallback.php	/^                        $transaction = "$plugiName payment of $transactionAmount was marked 'pending' by $plugiName. (Transaction Id: ".$transactionId.")";$/;"	v
+transaction	pesapal/PluginPesapalCallback.php	/^                        $transaction = "$plugiName payment of $transactionAmount was rejected. (Transaction Id: ".$transactionId.")";$/;"	v
+transaction	pesapal/PluginPesapalCallback.php	/^            $transaction = "$plugiName transaction verification has failed.";$/;"	v
+transactionAction	pesapal/PluginPesapalCallback.php	/^        $transactionAction = $params['transactionAction'];$/;"	v
+transactionAmount	pesapal/PluginPesapalCallback.php	/^                $transactionAmount = str_replace("-", "", $transactionAmount);$/;"	v
+transactionAmount	pesapal/PluginPesapalCallback.php	/^        $transactionAmount = $params['transactionAmount'];$/;"	v
+transactionId	pesapal/PluginPesapalCallback.php	/^        $transactionId = $params['transactionId'];$/;"	v
+transactionLast4	pesapal/PluginPesapalCallback.php	/^        $transactionLast4 = $params['transactionLast4'];$/;"	v
+transactionStatus	pesapal/PluginPesapalCallback.php	/^                $transactionStatus = $params['transactionStatus'];$/;"	v
+transactionVerified	pesapal/PluginPesapalCallback.php	/^        $transactionVerified = true;$/;"	v
+type	pesapal/PluginPesapal.php	/^        $type 		    = 'MERCHANT';	$/;"	v
+unset_parameter	pesapal/OAuth.php	/^  public function unset_parameter($name) {$/;"	f
+urlFix	pesapal/PluginPesapal.php	/^        $urlFix = mb_substr($params['clientExecURL'], -1, 1) == "\/\/" ? '' : '\/';$/;"	v
+urldecode_rfc3986	pesapal/OAuth.php	/^  public static function urldecode_rfc3986($string) {$/;"	f
+urlencode_rfc3986	pesapal/OAuth.php	/^  public static function urlencode_rfc3986($input) {$/;"	f
+uuid	pesapal/OAuth.php	/^    $uuid = chr(123)\/\/ "{"$/;"	v
+valid_sig	pesapal/OAuth.php	/^    $valid_sig = $signature_method->check_signature($/;"	v
+value	pesapal/OAuth.php	/^      $value = isset($split[1]) ? OAuthUtil::urldecode_rfc3986($split[1]) : '';$/;"	v
+values	pesapal/OAuth.php	/^    $values = OAuthUtil::urlencode_rfc3986(array_values($params));$/;"	v
+variables	pesapal/PluginPesapal.php	/^        $variables = array($/;"	v
+verify_request	pesapal/OAuth.php	/^  public function verify_request(&$request) {$/;"	f
+version	pesapal/OAuth.php	/^      $version = 1.0;$/;"	v
+version	pesapal/OAuth.php	/^    $version = $request->get_parameter("oauth_version");$/;"	v
+version	pesapal/OAuth.php	/^  protected $version = 1.0;             \/\/ hi blaine$/;"	v
+version	pesapal/OAuth.php	/^  public static $version = '1.0';$/;"	v

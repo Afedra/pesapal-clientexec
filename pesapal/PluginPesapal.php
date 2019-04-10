@@ -117,7 +117,7 @@ class PluginPesapal extends GatewayPlugin
         if ($this->getVariable('Demo Mode')) {
             $requestUrl = "https://demo.pesapal.com";
         } else {
-            $requestUrl = "https://pesapal.com";
+            $requestUrl = "https://www.pesapal.com";
         }
 
         $token = NULL;
