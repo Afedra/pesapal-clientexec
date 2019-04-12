@@ -161,7 +161,7 @@ publickeyid	pesapal/OAuth.php	/^    $publickeyid = openssl_get_publickey($cert);
 raw	pesapal/OAuth.php	/^    $raw = implode("&", $sig);$/;"	v
 reference	pesapal/PluginPesapal.php	/^        $reference 	    = $params['invoiceNumber'];$/;"	v
 requestUrl	pesapal/PluginPesapal.php	/^            $requestUrl = "https:\/\/demo.pesapal.com";$/;"	v
-requestUrl	pesapal/PluginPesapal.php	/^            $requestUrl = "https:\/\/pesapal.com";$/;"	v
+requestUrl	pesapal/PluginPesapal.php	/^            $requestUrl = "https:\/\/www.pesapal.com";$/;"	v
 request_headers	pesapal/OAuth.php	/^      $request_headers = OAuthUtil::get_headers();$/;"	v
 returnCancelUrl	pesapal/PluginPesapal.php	/^                $returnCancelUrl = $params["clientExecURL"]."\/order.php?step=3";$/;"	v
 returnCancelUrl	pesapal/PluginPesapal.php	/^                $returnCancelUrl = $this->settings->get('Signup Completion URL');$/;"	v

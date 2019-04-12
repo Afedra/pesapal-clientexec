@@ -3,10 +3,11 @@ require_once 'modules/admin/models/PluginCallback.php';
 require_once 'modules/billing/models/class.gateway.plugin.php';
 require_once 'library/CE/NE_Network.php';
 require_once 'library/CE/NE_PluginCollection.php';
+require_once 'checkStatus.php'; 
 
 class PluginPesapalCallback extends PluginCallback
 {
-    var $params;
+	var $params;
 
     function setCallbackParams($params)
     {
@@ -15,98 +16,73 @@ class PluginPesapalCallback extends PluginCallback
 
     function processCallback()
     {
-        $this->setCallbackParams($_POST);
+        $this->setCallbackParams($_REQUEST);
         $params = $this->params;
-
-        //Access here the values retuned by the gateway. Make sure to access them as specified by the gateway API.
-
-        //Uncomment these lines for you to see all the available parameters you can use from the $params variable. All you need to do is try to use the plugin to pay an invoice from a customer
-        //echo nl2br(print_r($params, true));
-        //exit;
-
-
-
-        $pluginFolderName = basename(dirname(__FILE__));
+        
+        $pluginFolderName = basename(dirname(__FILE__));        
         $plugiName = $this->settings->get('plugin_'.$pluginFolderName.'_Plugin Name');
 
-        //Make sure to get and assign the invoice id from the parameters returned from the gateway.
-        $invoiceId = $params['invoiceId'];
+        $invoiceId = $params['pesapal_merchant_reference'];
         $gatewayPlugin = new Plugin($invoiceId, $pluginFolderName, $this->user);
-
-        //If the gateway API provides a way to verify the response, make sure to verify it before performing any actions over the invoice.
-        $transactionVerified = true;
-        if (!$transactionVerified) {
-            $transaction = "$plugiName transaction verification has failed.";
-            $gatewayPlugin->PaymentRejected($transaction);
-            exit;
-        }
-
-        //Make sure to get and assign the transaction id from the parameters returned from the gateway.
-        $transactionId = $params['transactionId'];
+        
+        $transactionId = $params['pesapal_transaction_tracking_id'];
         $gatewayPlugin->setTransactionID($transactionId);
-
-        //Make sure to get and assign the transaction amount from the parameters returned from the gateway.
-        $transactionAmount = $params['transactionAmount'];
+        
+        // TODO: Add key , secret
+        $pesapal = new pesapalCheckStatus("IZFskPTNZw0KdBIfCRddN2Du4efwRJrk", "dx3JPpK99W9FQKvI3tRuGe8nWTk=");
+        $transactionStatus = $pesapal->checkTransactionStatus($invoiceId, $transactionId);
+        
+        $transactionAmount = $gatewayPlugin->m_Invoice->m_SubTotal;
         $gatewayPlugin->setAmount($transactionAmount);
-
-        //Make sure to get and assign the credit card last four digits from the parameters returned from the gateway, or set it as 'NA' if not available.
-        //Allowed values: 'NA', credit card last four digits
-        $transactionLast4 = $params['transactionLast4'];
-        $gatewayPlugin->setLast4($transactionLast4);
-
-        //Make sure to get and assign the type of transaction from the parameters returned from the gateway.
-        //Allowed values: charge, refund
-        $transactionAction = $params['transactionAction'];
-        switch($transactionAction) {
-            case 'charge':
-                $gatewayPlugin->setAction('charge');
-
-                //Make sure to get and assign the transaction status from the parameters returned from the gateway.
-                $transactionStatus = $params['transactionStatus'];
-
-                //Make sure to replace the case values in the following switch, to match the status values returned from the gateway.
-                switch($transactionStatus) {
-                    case 'Completed':
-                        $transaction = "$plugiName payment of $transactionAmount was accepted. (Transaction Id: ".$transactionId.")";
-                        $gatewayPlugin->PaymentAccepted($transactionAmount, $transaction, $transactionId);
-                        break;
-                    case 'Pending':
-                        $transaction = "$plugiName payment of $transactionAmount was marked 'pending' by $plugiName. (Transaction Id: ".$transactionId.")";
-                        $gatewayPlugin->PaymentPending($transaction, $transactionId);
-                        break;
-                    case 'Failed':
-                        $transaction = "$plugiName payment of $transactionAmount was rejected. (Transaction Id: ".$transactionId.")";
-                        $gatewayPlugin->PaymentRejected($transaction);
-                        break;
-                }
+        $gatewayPlugin->setAction('charge');
+                
+        switch($transactionStatus) {
+            case 'COMPLETED':            
+                $transaction = "$plugiName payment of $transactionAmount was accepted. (Transaction Id: ".$transactionId.")";
+                $gatewayPlugin->PaymentAccepted($transactionAmount, $transaction, $transactionId);
                 break;
-            case 'refund':
-                $gatewayPlugin->setAction('refund');
-
-                //If the refund transaction returns a negative amount, make sure to remove the minus sign
-                $transactionAmount = str_replace("-", "", $transactionAmount);
-
-                //Make sure to get and assign the parent transaction id (id of the original transaction been refunded) from the parameters returned from the gateway.
-                $parentTransactionId = $params['parentTransactionId'];
-
-                if ($parentTransactionId != '') {
-                    if ($gatewayPlugin->TransExists($parentTransactionId)) {
-                        $newInvoice = $gatewayPlugin->retrieveInvoiceForTransaction($parentTransactionId);
-
-                        if ($newInvoice && ($gatewayPlugin->m_Invoice->isPaid() || $gatewayPlugin->m_Invoice->isPartiallyPaid())) {
-                            $transaction = "$plugiName payment of $transactionAmount was refunded. (Transaction Id: ".$transactionId.")";
-                            $gatewayPlugin->PaymentRefunded($transactionAmount, $transaction, $transactionId);
-                        } elseif (!$gatewayPlugin->m_Invoice->isRefunded()) {
-                            CE_Lib::log(1, 'Related invoice not found or not set as paid on the application, when doing the refund.');
-                        }
-                    } else {
-                        CE_Lib::log(1, 'Parent transaction id not matching any existing invoice on the application, when doing the refund.');
+            case 'PENDING':
+                $transaction = "$plugiName payment of $transactionAmount was marked 'pending' by $plugiName. (Transaction Id: ".$transactionId.")";
+                $gatewayPlugin->PaymentPending($transaction, $transactionId);
+                break;
+            case 'FAILED':
+                $transaction = "$plugiName payment of $transactionAmount was rejected. (Transaction Id: ".$transactionId.")";
+                $gatewayPlugin->PaymentRejected($transaction);
+                break;
+            case 'INVALID':            
+                if ($recipients = $this->settings->get('Application Error Notification')) {
+                    include_once 'library/CE/NE_MailGateway.php';
+                    $mailGateway = new NE_MailGateway();
+                    $body = "A Pesapal payment for invoice ".$invoiceId." has been received.\n"
+                        ."The payment amount was ".$transactionAmount." and the Pesapal Transaction Id was ".$transactionId.".\n"
+                        ."In order to avoid frauds with this kind of payments, please take a look on your pesapal plugin configuration and set a proper 'Secret Word'.\n"
+                        ."Thank you.\n";
+                    $recipients = explode("\r\n", $recipients);
+    
+                    foreach ($recipients as $recipient) {
+                        $mailSend = $mailGateway->mailMessageEmail(
+                            array('HTML' => null, 'plainText' => $body),
+                            $this->settings->get('Support E-mail'),
+                            $this->settings->get('Support E-mail'),
+                            $recipient,
+                            '',
+                            'ClientExec Pesapal Security Risk Notification',
+                            1
+                        );
                     }
-                } else {
-                    CE_Lib::log(1, 'Callback is not returning the parent transaction id when refunding.');
+
                 }
+                $transaction = "$plugiName payment of $transactionAmount was invalid. (Transaction Id: ".$transactionId.")";
+                $gatewayPlugin->PaymentRejected($transaction);
                 break;
         }
+
+        $returnURL = CE_Lib::getSoftwareURL()."/index.php?fuse=billing&paid=1&controller=invoice&view=invoice&id=" . $invoiceId;
+
+        header("Location: " . $returnURL);
+
+
     }
+
 }
 ?>
